@@ -4,6 +4,7 @@ function App() {
       <header className="App-header">
         <p>Jonathan D.</p>
         <p>Scotty</p>
+        <p>Sasa</p>
       </header>
     </div>
   );
