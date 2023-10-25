@@ -20,6 +20,7 @@ function App() {
         <p><strong>Wazzzup??!! 🤪</strong></p>
         <p>Scotty</p>
         <p>Sasa</p>
+        <p>Daniel</p>
         <h3>{message}</h3>
         <h4>Don't tell anyone this: {secret}</h4>
         <p>
