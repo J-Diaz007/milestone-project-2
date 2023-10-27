@@ -1,11 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import TodoInput from './TodoInput';
 
 function App() {
   const [message, setMessage] = useState("Loading...");
   const [secret, setSecret] = useState("Loading...");
+  const [todos, setTodos] = useState([]);
 
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+  const addTodo = (todo) => {
+    setTodos([...todos, todoText]);
+  }
 
   useEffect(() => {
       axios.get(`${API_URL}/`).then((resp) => {
@@ -17,14 +23,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p><strong>Wazzzup??!! 🤪</strong></p>
-        <p>Scotty</p>
-        <p>Sasa</p>
-        <h3>{message}</h3>
-        <h4>Don't tell anyone this: {secret}</h4>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Simple To-Do List</h1>
+        <TodoInput addTodo={addTodo} />
+        <ul>
+          {todos.map((todo, index) => (
+            <li key={index}>{todo}</li>
+          ))}
+        </ul>
       </header>
     </div>
   );
