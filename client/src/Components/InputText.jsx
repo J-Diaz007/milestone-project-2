@@ -1,12 +1,9 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function InputText(props) {
   const [text, setText] = useState("");
-  //handle submit creates a value for the text input then
-  //trim makes it so user cant just press spaces.
-  //made an alert that triggers if not text.
 
-  //also, added a form tag so we can submit using the enter button that is why it requires e.preventDefault()
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim() === "") {
@@ -16,19 +13,29 @@ function InputText(props) {
       setText("");
     }
   };
+
   return (
-    <div>
-      {/* form tag added here */}
+    <div className="my-3">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          id="input-text"
-        />
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
+        <div className="input-group">
+          <input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            id="input-text"
+            className="form-control"
+            placeholder="What's on your mind?"
+          />
+          <div className="input-group-append">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
