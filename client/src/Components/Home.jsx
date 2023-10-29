@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputText from "./InputText";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -8,6 +9,13 @@ function Home() {
   const handleNewPost = (postText) => {
     setPosts((prevPosts) => [postText, ...prevPosts]);
   };
+
+  useEffect(() => {
+    axios.get("url/").then((response) => {
+      console.log(response);
+      //set the state of the posts to the response data.
+    });
+  }, []);
 
   return (
     <div className="container mt-5">
