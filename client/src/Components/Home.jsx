@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     axios.get("url/").then((response) => {
       console.log(response);
-      //set the state of the posts to the response data.
+      // * set the state of the posts to the response data.
     });
   }, []);
 
