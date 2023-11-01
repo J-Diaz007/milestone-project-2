@@ -12,7 +12,7 @@ function InputText(props) {
     } else {
       // * POST request to the backend using .then
       axios
-        .post("YOUR_BACKEND_URL_HERE", { caption: text })
+        .post("http://localhost:5001/api/posts", { caption: text })
         .then((response) => {
           console.log(response.data); // * You can handle response from the server here
           props.onNewPost(text);
