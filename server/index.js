@@ -20,19 +20,27 @@ mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.post("/api/posts", (req, res) => {
     let newPost = { ...req.body };
-    Posts.create(newPost, (err, post) => {
-        if (err) {
-            return res.status(500).json({ message: "Error creating post", error: err });
-        }
-        res.json(post);
-    });
+
+    Posts.create(newPost)
+        .then(post => {
+            res.json(post);
+        })
+        .catch(err => {
+            console.error("Error creating post:", err);
+            res.status(500).json({ message: "Error creating post", error: err.message });
+        });
 });
 
+
 app.get("/api/posts", (req, res) => {
-    Posts.find({}, (err, posts) => {
-        if (err) return res.status(500).json({ error: err });
-        res.json(posts);
-    });
+    Posts.find({})
+        .then(posts => {
+            res.json(posts)
+        })
+        .catch(err => {
+            console.error("error fetching the post data", err)
+            res.status(500).json({ error: err.message })
+        })
 });
 
 // Error handling middleware

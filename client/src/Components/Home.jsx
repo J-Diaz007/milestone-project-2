@@ -6,16 +6,20 @@ import axios from "axios";
 function Home() {
   const [posts, setPosts] = useState([]);
 
-  const handleNewPost = (postText) => {
-    setPosts((prevPosts) => [postText, ...prevPosts]);
+  const handleNewPost = (newPost) => {
+    setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
 
-  // useEffect(() => {
-  //   axios.get("url/").then((response) => {
-  //     console.log(response);
-  //     // * set the state of the posts to the response data.
-  //   });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5001/api/posts")
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the posts:", error);
+      });
+  }, []);
 
   return (
     <div className="container mt-5">
@@ -29,8 +33,8 @@ function Home() {
       ) : (
         posts.map((post, index) => (
           <div key={index} className="card mt-4">
-            {/* <img src={place holder image} alt="Post" className="card-img-top"/> {placeholderimg}*/}
-            <div className="card-body">{post}</div>
+            <img src={post.imgUrl} alt="Post" className="card-img-top" />
+            <div className="card-body">{post.caption}</div>
           </div>
         ))
       )}

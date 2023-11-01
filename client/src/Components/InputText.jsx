@@ -4,18 +4,21 @@ import axios from "axios";
 
 function InputText(props) {
   const [text, setText] = useState("");
-  //* trim removes the white spaces at the beginning and end of the string
+  const [imgUrl, setImgUrl] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim() === "") {
       alert("Please enter a valid caption!");
     } else {
-      // * POST request to the backend using .then
       axios
-        .post("http://localhost:5001/api/posts", { caption: text })
+        .post("http://localhost:5001/api/posts", {
+          caption: text,
+          imgUrl: imgUrl,
+        })
         .then((response) => {
-          console.log(response.data); // * You can handle response from the server here
-          props.onNewPost(text);
+          console.log(response.data);
+          props.onNewPost(response.data);
           setText("");
         })
         .catch((error) => {
@@ -28,6 +31,14 @@ function InputText(props) {
     <div className="my-3">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
+          <input
+            type="text"
+            value={imgUrl}
+            onChange={(e) => setImgUrl(e.target.value)}
+            className="form-control"
+            placeholder="Enter image URL"
+          />
+
           <input
             required
             type="text"
