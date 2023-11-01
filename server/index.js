@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const mongoose = requre("mongoose")
+const mongoose = require("mongoose")
 
 // * Will load environment variables
 dotenv.config();
@@ -11,16 +11,17 @@ app.use(cors());
 
 const port = process.env.PORT || 5000;
 const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/instagram"
-const sayHello = (req, res) => {
-    res.send({
-        message: "Hello Dev!",
-        secret: process.env.NOT_SO_SECRET,
-    });
-}
 
-app.get("/",);
+// //controller 
+// const sayHello = (req, res) => {
+//     res.send({
+//         message: "Hello Dev!",
+//         secret: process.env.NOT_SO_SECRET,
+//     });
+// }
+// //route
+// app.get("/", sayHello);
 
-//routing
 app.post("/api/posts", (req, res) => {
 
 })
