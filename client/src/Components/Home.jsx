@@ -10,12 +10,12 @@ function Home() {
     setPosts((prevPosts) => [postText, ...prevPosts]);
   };
 
-  useEffect(() => {
-    axios.get("url/").then((response) => {
-      console.log(response);
-      // * set the state of the posts to the response data.
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("url/").then((response) => {
+  //     console.log(response);
+  //     // * set the state of the posts to the response data.
+  //   });
+  // }, []);
 
   return (
     <div className="container mt-5">
@@ -39,3 +39,5 @@ function Home() {
 }
 
 export default Home;
+
+
