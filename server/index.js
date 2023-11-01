@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose")
@@ -6,7 +7,6 @@ const mongoose = require("mongoose")
 // * Will load environment variables
 dotenv.config();
 
-const app = express();
 app.use(cors());
 
 const port = process.env.PORT || 5000;
@@ -18,7 +18,9 @@ const sayHello = (req, res) => {
     });
 }
 
-app.get("/",);
+app.get("/",(req,res)=>{
+    res.send("Hello Dev")
+});
 
 //routing
 app.post("/api/posts", (req, res) => {
