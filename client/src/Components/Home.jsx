@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputText from "./InputText";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -13,7 +13,7 @@ function Home() {
   // useEffect(() => {
   //   axios.get("url/").then((response) => {
   //     console.log(response);
-  //     //set the state of the posts to the response data.
+  //     // * set the state of the posts to the response data.
   //   });
   // }, []);
 
@@ -39,3 +39,5 @@ function Home() {
 }
 
 export default Home;
+
+

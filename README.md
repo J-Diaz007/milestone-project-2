@@ -1,2 +1,2 @@
-# milestone-project-2
+# MERN Stack Milestone Project
 TBD. Milestone Project
