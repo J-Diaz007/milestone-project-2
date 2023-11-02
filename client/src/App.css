@@ -96,9 +96,14 @@ body {
   }
   
 .logo {
+.logo {
   max-height: 7em;
 }  
 
 img{
+  max-height: 12em;
+}
+
+img {
   max-height: 12em;
 }
