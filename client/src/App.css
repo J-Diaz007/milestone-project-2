@@ -95,15 +95,11 @@ body {
     background: linear-gradient(to right, #e24949, #e23449);
   }
   
-.logo {
+
 .logo {
   max-height: 7em;
 }  
 
 img{
-  max-height: 12em;
-}
-
-img {
-  max-height: 12em;
+  max-height: 20em;
 }
