@@ -38,7 +38,11 @@ function Home() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Instagram</h1>
+      <img 
+      src="../logo.png" 
+      alt="Instagram Logo"
+      />
+      
       <InputText onNewPost={handleNewPost} />
 
       {posts.length === 0 ? (

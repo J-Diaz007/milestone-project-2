@@ -95,3 +95,6 @@ body {
     background: linear-gradient(to right, #e24949, #e23449);
   }
   
+img {
+  max-height: 7em;
+}  
