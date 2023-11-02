@@ -47,7 +47,11 @@ function Home() {
 
       {posts.length === 0 ? (
         <div className="text-center mt-5">
-          <h2>Nothing Posted</h2>
+          <h2>Nothing Posted</h2> 
+          <img
+          src="../instapic.jpeg"
+          alt="Blue Mouatin Img"
+          />
         </div>
       ) : (
         posts.map((post, index) => (
