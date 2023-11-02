@@ -38,7 +38,7 @@ function Home() {
 
   return (
     <div className="container mt-5">
-      <img 
+      <img className="logo"
       src="../logo.png" 
       alt="Instagram Logo"
       />
