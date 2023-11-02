@@ -5,4 +5,4 @@ let postsSchema = new mongoose.Schema({
     caption: { type: String, required: true }
 })
 
-module.exports = mongoose.model('Post', postsSchema)
+module.exports = mongoose.model('Posts', postsSchema)
