@@ -2,12 +2,27 @@ import React, { useState, useEffect } from "react";
 import InputText from "./InputText";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import PostUpdate from "./PostUpdate";
+import PostDelete from "./PostDelete";
 
 function Home() {
   const [posts, setPosts] = useState([]);
 
   const handleNewPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
+  };
+
+  const handleUpdatePost = (index, newCaption) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].caption = newCaption;
+    setPosts(updatedPosts);
+  };
+
+  const handleDeletePost = (index) => {
+    const postId = posts[index]._id;
+    const updatedPosts = [...posts];
+    updatedPosts.splice(index, 1);
+    setPosts(updatedPosts);
   };
 
   useEffect(() => {
@@ -35,6 +50,8 @@ function Home() {
           <div key={index} className="card mt-4">
             <img src={post.imgUrl} alt="Post" className="card-img-top" />
             <div className="card-body">{post.caption}</div>
+            <PostUpdate index={index} onUpdate={handleUpdatePost} />
+            <PostDelete index={index} onDelete={handleDeletePost} />
           </div>
         ))
       )}
