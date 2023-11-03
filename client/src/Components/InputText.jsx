@@ -71,7 +71,11 @@ function InputText(props) {
             aria-label="Caption"
           />
           <div className="input-group-append">
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-success"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>

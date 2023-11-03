@@ -11,6 +11,7 @@ function Home() {
   const handleNewPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
+  
   const handleUpdatePost = (index, newCaption) => {
     const postToUpdate = posts[index];
     if (!postToUpdate) {
@@ -19,10 +20,8 @@ function Home() {
     }
 
     const postId = postToUpdate._id;
-    const API_URL = "http://localhost:5001/api/posts"; // Ensure this is your correct API URL
-
-    // Retrieve the auth token correctly from your auth context or state
-    const token = "your_auth_token_here"; // Make sure you replace this with the actual token
+    const API_URL = "http://localhost:5001/api/posts";
+    const token = "your_auth_token_here";
 
     axios
       .put(
@@ -31,14 +30,14 @@ function Home() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Ensure the token is being sent correctly
+            Authorization: `Bearer ${token}`,
           },
         }
       )
       .then((response) => {
         const updatedPosts = [...posts];
-        updatedPosts[index] = response.data; // Ensure the response data has the same structure as your posts
-        setPosts(updatedPosts); // Update your state with the new posts array
+        updatedPosts[index] = response.data; 
+        setPosts(updatedPosts); 
         console.log("Successfully updated post!", response.data);
       })
       .catch((error) => {
@@ -54,9 +53,7 @@ function Home() {
     }
 
     const postId = postToDelete._id;
-    const API_URL = "http://localhost:5001/api/posts"; // Update this URL as needed
-
-    // Add your logic to retrieve the auth token
+    const API_URL = "http://localhost:5001/api/posts"; 
     const token = "your_auth_token_here";
 
     axios
@@ -73,7 +70,7 @@ function Home() {
       })
       .catch((error) => {
         console.error("Error deleting post:", error);
-        // Optionally, inform the user that the deletion failed using a UI element or notification
+        // * Informs the user that the deletion failed
       });
   };
 

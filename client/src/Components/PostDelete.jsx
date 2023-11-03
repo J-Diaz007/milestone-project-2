@@ -8,7 +8,11 @@ function PostDelete(props) {
 
   return (
     <div>
-      <button onClick={handleDeletePost}>Delete</button>
+      <button 
+      onClick={handleDeletePost}
+      type="button" 
+      class="btn btn-outline-danger"
+      >Delete</button>
     </div>
   );
 }
