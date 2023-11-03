@@ -12,7 +12,7 @@ class PostUpdate extends Component {
 
   handleUpdatePost = () => {
     const { index, onUpdate } = this.props;
-    onUpdate(index, this.state.newName); // Pass newName directly as a string
+    onUpdate(index, this.state.newName);
     this.setState({ newName: "" });
   };
 
@@ -31,11 +31,11 @@ class PostUpdate extends Component {
       <div>
         <input
           type="text"
-          className={inputClass} // Add this line
+          className={inputClass}
           value={this.state.newName}
           onChange={(e) => this.setState({ newName: e.target.value })}
-          onFocus={this.handleFocus} // Add this line
-          onBlur={this.handleBlur} // Add this line
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
         <button onClick={this.handleUpdatePost}>Update</button>
       </div>
