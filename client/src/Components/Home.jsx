@@ -11,18 +11,69 @@ function Home() {
   const handleNewPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
-
   const handleUpdatePost = (index, newCaption) => {
-    const updatedPosts = [...posts];
-    updatedPosts[index].caption = newCaption;
-    setPosts(updatedPosts);
-  };
+    const postToUpdate = posts[index];
+    if (!postToUpdate) {
+      console.error("Post to update not found.");
+      return;
+    }
 
+    const postId = postToUpdate._id;
+    const API_URL = "http://localhost:5001/api/posts"; // Update this URL as needed
+
+    // Add your logic to retrieve the auth token
+    const token = "your_auth_token_here";
+
+    axios
+      .put(
+        `${API_URL}/${postId}`,
+        { caption: newCaption },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        const updatedPosts = [...posts];
+        updatedPosts[index] = response.data;
+        setPosts(updatedPosts);
+        console.log("Successfully updated post!", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating post:", error);
+      });
+  };
   const handleDeletePost = (index) => {
-    const postId = posts[index]._id;
-    const updatedPosts = [...posts];
-    updatedPosts.splice(index, 1);
-    setPosts(updatedPosts);
+    const postToDelete = posts[index];
+    if (!postToDelete) {
+      console.error("Post to delete not found.");
+      return;
+    }
+
+    const postId = postToDelete._id;
+    const API_URL = "http://localhost:5001/api/posts"; // Update this URL as needed
+
+    // Add your logic to retrieve the auth token
+    const token = "your_auth_token_here";
+
+    axios
+      .delete(`${API_URL}/${postId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        const updatedPosts = [...posts];
+        updatedPosts.splice(index, 1);
+        setPosts(updatedPosts);
+        console.log("Successfully deleted post.");
+      })
+      .catch((error) => {
+        console.error("Error deleting post:", error);
+        // Optionally, inform the user that the deletion failed using a UI element or notification
+      });
   };
 
   useEffect(() => {
@@ -38,20 +89,14 @@ function Home() {
 
   return (
     <div className="container mt-5">
-      <img className="logo"
-      src="../logo.png" 
-      alt="Instagram Logo"
-      />
-      
+      <img className="logo" src="../logo.png" alt="Instagram Logo" />
+
       <InputText onNewPost={handleNewPost} />
 
       {posts.length === 0 ? (
         <div className="text-center mt-5">
-          <h2>Nothing Posted</h2> 
-          <img 
-          src="../instapic.jpeg"
-          alt="Blue Mouatin Img"
-          />
+          <h2>Nothing Posted</h2>
+          <img src="../instapic.jpeg" alt="Blue Mouatin Img" />
         </div>
       ) : (
         posts.map((post, index) => (
