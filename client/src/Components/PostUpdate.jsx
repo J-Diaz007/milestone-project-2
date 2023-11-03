@@ -37,7 +37,11 @@ class PostUpdate extends Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
-        <button onClick={this.handleUpdatePost}>Update</button>
+        <button 
+        onClick={this.handleUpdatePost}
+        type="button" 
+        class="btn btn-primary"
+        >Update</button>
       </div>
     );
   }
