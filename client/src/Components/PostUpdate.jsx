@@ -7,6 +7,7 @@ class PostUpdate extends Component {
     this.state = {
       newName: "",
       isEditing: false,
+      buttonClicked: false, // * State variable to track when the button click
     };
   }
 
@@ -14,6 +15,7 @@ class PostUpdate extends Component {
     const { index, onUpdate } = this.props;
     onUpdate(index, this.state.newName);
     this.setState({ newName: "" });
+    this.setState({ buttonClicked: true }); // * Sets the buttonClicked state to true
   };
 
   handleFocus = () => {
@@ -41,7 +43,9 @@ class PostUpdate extends Component {
         onClick={this.handleUpdatePost}
         type="button" 
         class="btn btn-outline-primary"
-        >Update</button>
+        >
+          {this.state.buttonClicked ? "Submit" : "Update"}
+        </button>
       </div>
     );
   }
