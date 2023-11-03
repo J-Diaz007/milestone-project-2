@@ -67,20 +67,6 @@ body {
   font-size: 24px;
 }
 
-/* Button for Actions (Follow, Like, etc.) */
-.action-button {
-  background: linear-gradient(to right, #ff6b6b, #ff556b);
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.action-button:hover {
-  background: linear-gradient(to right, #e24949, #e23449);
-}
-
 .logo {
   max-height: 7em;
 }
