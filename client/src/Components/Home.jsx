@@ -58,7 +58,7 @@ function Home() {
           <div key={index} className="card mt-4">
             <img src={post.imgUrl} alt="Post" className="card-img-top" />
             <div className="card-body">{post.caption}</div>
-            <PostUpdate index={index} onUpdate={handleUpdatePost} />
+            <PostUpdate index={index} onUpdate={this.handleUpdatePost} />
             <PostDelete index={index} onDelete={handleDeletePost} />
           </div>
         ))
