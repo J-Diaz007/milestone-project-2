@@ -2,8 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const Posts = require("./models/posts"); // Assuming this is the correct path to your model
-
+const Posts = require("./models/posts"); git
 dotenv.config();
 
 const app = express();
@@ -23,12 +22,9 @@ mongoose.connect(mongoUri, {
 // Post a new post
 app.post("/api/posts", async (req, res) => {
   try {
-    // Create a new post using the request body
     const newPost = await Posts.create(req.body);
-    // Respond with the created post including the _id and other fields
     res.status(201).json(newPost);
   } catch (err) {
-    // If there's an error, respond with a 500 server error and the error message
     console.error("Error creating post:", err);
     res.status(500).json({ message: "Error creating post", error: err.message });
   }
