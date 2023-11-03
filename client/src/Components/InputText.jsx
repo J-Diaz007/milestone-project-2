@@ -51,7 +51,7 @@ function InputText(props) {
           <div className="input-group-append">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-success"
               onClick={handleSubmit}
             >
               Submit
