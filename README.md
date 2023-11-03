@@ -28,5 +28,37 @@ Axios-HTTP client for making API requests.
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
+### Server Package.json
+
+```json
+{
+  "name": "milestone-project-2-server",
+  "version": "1.0.0",
+  "description": "TBD. Milestone Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Diaz007/milestone-project-2.git"
+  },
+  "author": "Jonathan D.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-Diaz007/milestone-project-2/issues"
+  },
+  "homepage": "https://github.com/J-Diaz007/milestone-project-2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.4",
+    "nodemon": "^3.0.1"
+  }
+}
+
+
 Acknowledgments
 Special thanks to Joshua and Ogi for their guidance and inspiration.
