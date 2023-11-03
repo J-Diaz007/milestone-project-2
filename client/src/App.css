@@ -74,20 +74,3 @@ body {
 img {
   max-height: 20em;
 }
-
-/* input update text changes */
-@keyframes blinkingBackground {
-  0% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: rgba(0, 123, 255, 0.1);
-  } /* Adjust the color and opacity as needed */
-  100% {
-    background-color: transparent;
-  }
-}
-
-.blinking-input {
-  animation: blinkingBackground 1s linear infinite;
-}
