@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class PostDelete extends Component {
-  handleDeletePost = () => {
-    const { index, onDelete } = this.props;
+function PostDelete(props) {
+  const handleDeletePost = () => {
+    const { index, onDelete } = props;
     onDelete(index);
   }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleDeletePost}>Delete</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button onClick={handleDeletePost}>Delete</button>
+    </div>
+  );
 }
 
 export default PostDelete;
