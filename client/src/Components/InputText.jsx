@@ -6,7 +6,6 @@ function InputText(props) {
   const [text, setText] = useState("");
   const [imgUrl, setImgUrl] = useState("");
 
-  // Function to validate URL
   const isValidHttpUrl = (string) => {
     let url;
     try {
@@ -76,7 +75,7 @@ function InputText(props) {
               className="btn btn-success"
               onClick={handleSubmit}
             >
-              Submit
+              <strong>Post</strong>
             </button>
           </div>
         </div>
