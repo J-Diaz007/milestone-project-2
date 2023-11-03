@@ -40,7 +40,7 @@ class PostUpdate extends Component {
         <button 
         onClick={this.handleUpdatePost}
         type="button" 
-        class="btn btn-primary"
+        class="btn btn-outline-primary"
         >Update</button>
       </div>
     );

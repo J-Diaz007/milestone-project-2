@@ -11,7 +11,7 @@ function PostDelete(props) {
       <button 
       onClick={handleDeletePost}
       type="button" 
-      class="btn btn-danger"
+      class="btn btn-outline-danger"
       >Delete</button>
     </div>
   );
