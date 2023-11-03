@@ -42,7 +42,7 @@ class PostUpdate extends Component {
         <button 
         onClick={this.handleUpdatePost}
         type="button" 
-        class="btn btn-outline-primary"
+        className="btn btn-outline-primary"
         >
           {this.state.buttonClicked ? "Submit" : "Update"}
         </button>
