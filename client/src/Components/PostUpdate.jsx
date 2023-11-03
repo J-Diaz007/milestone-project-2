@@ -10,7 +10,7 @@ class PostUpdate extends Component {
 
   handleUpdatePost = () => {
     const { index, onUpdate } = this.props;
-    onUpdate(index, this.state.newName);
+    onUpdate(index, { caption: this.state.newName });
     this.setState({ newName: '' });
   }
 
