@@ -39,10 +39,10 @@ class PostUpdate extends Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
-        <button 
-        onClick={this.handleUpdatePost}
-        type="button" 
-        className="btn btn-outline-primary"
+        <button
+          onClick={this.handleUpdatePost}
+          type="button"
+          className={`btn custom-button ${this.state.buttonClicked ? 'btn btn-outline-primary' : 'btn-outline-secondary'}`}
         >
           {this.state.buttonClicked ? "Submit" : "Update"}
         </button>
