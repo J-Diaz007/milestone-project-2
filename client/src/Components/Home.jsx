@@ -38,7 +38,7 @@ function Home() {
         const updatedPosts = [...posts];
         updatedPosts[index] = response.data;
         setPosts(updatedPosts);
-        setErrorMsg(""); // Clear any previous error messages
+        setErrorMsg("");
         console.log("Successfully updated post!", response.data);
       })
       .catch((error) => {
@@ -57,7 +57,6 @@ function Home() {
 
     const postId = postToDelete._id;
     const API_URL = "http://localhost:5001/api/posts";
-    const token = "your_auth_token_here";
 
     axios
       .delete(`${API_URL}/${postId}`, {
@@ -67,7 +66,7 @@ function Home() {
         const updatedPosts = [...posts];
         updatedPosts.splice(index, 1);
         setPosts(updatedPosts);
-        setErrorMsg(""); // Clear any previous error messages
+        setErrorMsg("");
         console.log("Successfully deleted post.");
       })
       .catch((error) => {
