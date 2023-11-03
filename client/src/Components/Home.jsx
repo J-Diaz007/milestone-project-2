@@ -19,10 +19,10 @@ function Home() {
     }
 
     const postId = postToUpdate._id;
-    const API_URL = "http://localhost:5001/api/posts"; // Update this URL as needed
+    const API_URL = "http://localhost:5001/api/posts"; // Ensure this is your correct API URL
 
-    // Add your logic to retrieve the auth token
-    const token = "your_auth_token_here";
+    // Retrieve the auth token correctly from your auth context or state
+    const token = "your_auth_token_here"; // Make sure you replace this with the actual token
 
     axios
       .put(
@@ -31,20 +31,21 @@ function Home() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`, // Ensure the token is being sent correctly
           },
         }
       )
       .then((response) => {
         const updatedPosts = [...posts];
-        updatedPosts[index] = response.data;
-        setPosts(updatedPosts);
+        updatedPosts[index] = response.data; // Ensure the response data has the same structure as your posts
+        setPosts(updatedPosts); // Update your state with the new posts array
         console.log("Successfully updated post!", response.data);
       })
       .catch((error) => {
         console.error("Error updating post:", error);
       });
   };
+
   const handleDeletePost = (index) => {
     const postToDelete = posts[index];
     if (!postToDelete) {
