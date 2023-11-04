@@ -69,6 +69,8 @@ body {
 
 .logo {
   max-height: 7em;
+  display: block;
+  margin:0 auto;
 }
 
 img {
