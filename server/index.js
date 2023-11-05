@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const Posts = require("./models/posts"); git
+const Posts = require("./models/posts"); 
 dotenv.config();
 
 const app = express();
