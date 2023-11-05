@@ -7,6 +7,7 @@ function InputText(props) {
   const [imgUrl, setImgUrl] = useState("");
   const [imageLoadError, setImageLoadError] = useState(false);
 
+  // * Helper function that checks if the string is a valid HTTP or HTTPS URL. Uses the URL constructor to parse the URL and checks if it has a protocol of "http:" or "https:".
   const isValidHttpUrl = (string) => {
     let url;
     try {
