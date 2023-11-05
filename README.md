@@ -23,7 +23,7 @@ DELETE /api/posts/:id: Delete a post.
 
 Built With
 React-Frontend framework
-Express.js-Backend frameowk
+Express.js-Backend framework
 MongoDB-Database
 Node.js-JavaScript runtime
 Axios-HTTP client for making API requests.
