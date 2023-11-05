@@ -5,7 +5,6 @@ import axios from "axios";
 function InputText(props) {
   const [text, setText] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [imgLoadError, setImgLoadError] = useState(false);
 
   const isValidHttpUrl = (string) => {
     let url;
@@ -19,8 +18,12 @@ function InputText(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() === "" || !isValidHttpUrl(imgUrl)) {
-      alert("Please enter a valid caption and image URL!");
+    if (text.trim() === "") {
+      alert("Please enter a valid post.");
+      return;
+    }
+    if (imgUrl && !isValidHttpUrl(imgUrl)) {
+      alert("Please enter a valid image URL.");
       return;
     }
     axios
