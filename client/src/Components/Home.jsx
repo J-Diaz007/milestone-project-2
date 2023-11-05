@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import InputText from "./InputText";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+
+import InputText from "./InputText";
 import PostUpdate from "./PostUpdate";
 import PostDelete from "./PostDelete";
 
@@ -9,10 +10,12 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
+  // * This function takes a newPost object and adds it to the beginning of the posts array using the spread operator.
   const handleNewPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
 
+  // *  handleUpdatePost takes an index, newCaption, and newImgUrl as arguments and sends a PUT request to update the post on the server using the Axios library.
   const handleUpdatePost = (index, newCaption, newImgUrl) => {
     const postToUpdate = posts[index];
     if (!postToUpdate) {
@@ -47,6 +50,7 @@ function Home() {
       });
   };
 
+  // * Takes an index and sends a DELETE request to remove the post from the server.
   const handleDeletePost = (index) => {
     const postToDelete = posts[index];
     if (!postToDelete) {
@@ -74,7 +78,7 @@ function Home() {
         setErrorMsg("Error deleting post.");
       });
   };
-
+// * useEffect hook makes the initial API request when the component is mounted. It sends a GET request to retrieve posts from the server. The fetched data is stored in the posts state.
   useEffect(() => {
     axios
       .get("http://localhost:5001/api/posts")
@@ -87,6 +91,7 @@ function Home() {
       });
   }, []);
 
+  // * Renders the user interface for the home page
   return (
     <div className="container mt-5">
       <img className="logo mb-3" src="../logo.png" alt="Instagram Logo" />

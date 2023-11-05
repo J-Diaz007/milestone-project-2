@@ -1,3 +1,4 @@
+// * THE SCHEMA - Data structure that defines the shape and structure of documents in the MongoDB (noSQL) collection.
 const mongoose = require('mongoose')
 
 let postsSchema = new mongoose.Schema({

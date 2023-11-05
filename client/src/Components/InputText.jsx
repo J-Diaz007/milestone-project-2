@@ -7,6 +7,7 @@ function InputText(props) {
   const [imgUrl, setImgUrl] = useState("");
   const [imageLoadError, setImageLoadError] = useState(false);
 
+  // * Helper function that checks if the string is a valid HTTP or HTTPS URL. Uses the URL constructor to parse the URL and checks if it has a protocol of "http:" or "https:".
   const isValidHttpUrl = (string) => {
     let url;
     try {
@@ -21,21 +22,25 @@ function InputText(props) {
     setImageLoadError(true);
   };
 
+// * Event handler for when the user submits a new post. 
   const handleSubmit = (e) => {
+    // * Prevents the site from refreshing when a post is submitted (Prevents the default page behavior)
     e.preventDefault();
     if (text.trim() === "" && !imgUrl) {
-      alert("Please enter a valid caption or image URL.");
+      alert("Please enter a valid caption or caption & image URL.");
       return;
     }
     if (imgUrl && !isValidHttpUrl(imgUrl)) {
       alert("Please enter a valid image URL.");
       return;
     }
+    // * Sends the HTTP POST request to the URL. (Sends the data to the server)
     axios
       .post("http://localhost:5001/api/posts", {
         caption: text,
         imgUrl: imgUrl,
       })
+      // * Notifies the parent component that a new post has been created and then resets the input fields and error message.
       .then((response) => {
         console.log(response.data);
         props.onNewPost(response.data);
@@ -86,7 +91,7 @@ function InputText(props) {
           <div className="input-group-append">
             <button
               type="submit"
-              className="btn btn-success"
+              className="btn btn-primary"
               onClick={handleSubmit}
             >
               <strong>Post</strong>
