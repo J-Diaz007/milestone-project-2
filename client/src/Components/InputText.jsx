@@ -5,6 +5,7 @@ import axios from "axios";
 function InputText(props) {
   const [text, setText] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [imgLoadError, setImgLoadError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
