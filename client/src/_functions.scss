@@ -1,0 +1,15 @@
+
+
+@use "sass:math";
+
+@function calculate-rem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
