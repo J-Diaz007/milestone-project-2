@@ -53,7 +53,7 @@ nav ul li a {
   font-size: 1.25rem;
 }
 nav ul li a:hover {
-  color: #e6e6e6;
+  color: darken-color(#fff, 10%);
 }
 
 .post {
@@ -71,19 +71,13 @@ nav ul li a:hover {
   margin: 0 auto;
   border-radius: 10px;
 }
-.post:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
 .logo {
-  width: 100px;
+  max-width: 100px;
   height: auto;
 }
 
 .action-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #87CEEB;
   color: #fff;
   border: none;
@@ -93,5 +87,11 @@ nav ul li a:hover {
   transition: background-color 0.2s;
 }
 .action-button:hover {
-  background-color: #007399;
+  background-color: #00BFFF;
+}
+
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 10px;
+  }
 }/*# sourceMappingURL=App.css.map */

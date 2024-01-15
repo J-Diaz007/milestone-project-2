@@ -1,4 +1,4 @@
-// mixins
+
 @mixin flex-center {
     display: flex;
     align-items: center;
@@ -14,5 +14,15 @@
     background-color: $color;
     box-shadow: $box-shadow-light;
     border-radius: $border-radius;
+  }
+  
+  @mixin button-style {
+    width: $button-size;
+    height: $button-size;
+    background-color: $button-color;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
   }
   
